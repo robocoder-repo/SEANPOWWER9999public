@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Data - Escort Web App</title>
+</head>
+<body>
+    <h1>API Data for <%= user.name %></h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">My Profile</a></li>
+            <li><a href="/profiles">View Profiles</a></li>
+            <li><a href="/subscription">Subscription</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <% if (apiData && apiData.data) { %>
+        <h2>Message Threads</h2>
+        <ul>
+            <% apiData.data.forEach(function(thread) { %>
+                <li>
+                    <h3>Contact: <%= thread.contact %></h3>
+                    <p>Last Message: <%= thread.last_message %></p>
+                    <p>Status: <%= thread.status %></p>
+                    <p>Last Updated: <%= new Date(thread.updated_at).toLocaleString() %></p>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No API data available or there was an error fetching the data.</p>
+    <% } %>
+</body>
+</html>

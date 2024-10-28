@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profiles - Escort Web App</title>
+</head>
+<body>
+    <h1>Escort Profiles</h1>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/profile">My Profile</a></li>
+            <li><a href="/subscription">Subscription</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </nav>
+    <ul>
+        <% profiles.forEach(function(profile) { %>
+            <li>
+                <h3><%= profile.name %></h3>
+                <p>Email: <%= profile.email %></p>
+                <p>Services: <%= profile.services %></p>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
